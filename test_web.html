@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <title>Task task_first</title>
+    <style>
+        h4 {
+            color: blue;
+            cursor: pointer;
+        }
+
+        .task6 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Написать метод/функцию, который/которая на вход принимает массив городов. В качестве результата возвращает строку, где города разделены запятыми, а в конце стоит точка. 
+Пример:
+«Москва, Санкт-Петербург, Воронеж.» 
+ -->
+    <div>
+        <h5>#1.<br>Написать метод/функцию, который/которая на вход принимает массив городов. <br>В качестве результата
+            возвращает строку, где города разделены запятыми, а в конце стоит точка.
+            Пример:<br>
+            «Москва, Санкт-Петербург, Воронеж.»
+        </h5>
+        <h4>Ответ:</h4>
+        <p class="task1"> </p>
+        <h5> #2. <br>
+            Написать метод/функцию, который/которая на вход принимает число (float), а на выходе получает
+            число,округленное до пятерок.<br>
+            Пример:<br>
+            27 => 25, 27.8 => 30, 41.7 => 40.
+        </h5>
+        <h4>Ответ:</h4>
+        <ul class="task2">В консоли</ul>
+        <h5> #3 <br>
+            Написать метод/функцию, который/которая на вход принимает число (int), а на выходе выдает слово “компьютер”
+            в падеже, соответствующем указанному количеству. Например, «25 компьютеров», «41 компьютер», «1048
+            компьютеров».
+        </h5>
+        <h4>Ответ:</h4>
+        <p class="task3">В консоли</p>
+        <h5>#4<br>
+            Написать метод/функцию, который/которая на вход принимает целое число, а на выходе возвращает то, является
+            ли число простым (не имеет делителей кроме 1 и самого себя).
+        </h5>
+        <h4>Ответ:</h4>
+        <p class="task4">В консоли</p>
+        <h5>#5<br>
+            Написать метод, который определяет, какие элементы присутствуют в двух экземплярах в каждом из массивов (= в
+            двух и более, причем в каждом). На вход подаются два массива. На выходе массив с необходимыми совпадениями.
+            <br>
+            Пример:<br>
+            [7, 17, 1, 9, 1, 17, 56, 56, 23], [56, 17, 17, 1, 23, 34, 23, 1, 8, 1]<br>
+            На выходе [1, 17]
+        </h5>
+        <h4>Ответ:</h4>
+        <p class="task5">В консоли</p>
+        <h5>#6<br>Написать метод, который в консоль выводит таблицу умножения.<br> На вход метод получает число, до
+            которого выводит таблицу умножения.<br> В консоли должна появиться таблица. Например, если на вход пришло
+            число 5, то получим:<br>
+            Важно:<br>
+            В последней строке между числами ровно по одному пробелу должно выводиться.<br>
+            В каждом столбце числа должны быть выровнены по правому краю.<br>
+        </h5>
+        <h4>Ответ:</h4>
+        <div class="task6">В консоли</div>
+      
+    </div>
+    <script>
+        const p = document.querySelector('.task1');
+        const arr = ["Москва", "Санкт-Петербург", "Воронеж"]
+        function Stroka(towns) {
+            if (Array.isArray(towns)) {
+                let result = "«" + (towns.join(", ") + ".") + "»";
+                return result;
+            }
+        }
+        console.log(Stroka(arr));
+        p.append(Stroka(arr))
+
+        let numb1 = 27;
+        let numb2 = 27.8;
+        let numb3 = 41.7;
+        let numb4 = 45;
+        let numb5 = -11.552;
+        let numb6 = 0.2;
+
+        function roundNumb(numb) {
+            let numberOfFive = numb % 5;
+
+            if (numberOfFive === 0) {
+                return numb;
+            } else if (numberOfFive >= 2.5) {
+                return (numb - numberOfFive + 5);
+            } else {
+                if (numberOfFive < 2.5) {
+                    return (numb - numberOfFive)
+                }
+            }
+        }
+        console.log(roundNumb(numb1));
+        console.log(roundNumb(numb2));
+        console.log(roundNumb(numb3));
+        console.log(roundNumb(numb4));
+        console.log(roundNumb(numb5));
+        console.log(roundNumb(numb6));
+        // _____________________________________________________________________
+        let a = 25;
+        let b = 41;
+        let c = 1048;
+        let d = 104;
+        let e = 6.5;
+
+
+        function naming(int) {
+            let myNum = String(int);
+            let myNumArr = [];
+            for (let i = 0; i < myNum.length; i++) {
+                myNumArr.push(myNum.charAt(i));
+            }
+
+            let endPosition = myNumArr[myNumArr.length - 1];
+            let penultPosition = myNumArr[myNumArr.length - 2];
+
+            if ((endPosition >= 5 && endPosition <= 9) || (endPosition === "0") ||
+                (endPosition == 1 && penultPosition == 1) ||
+                (endPosition >= 2 && endPosition <= 4 && penultPosition == 1)
+            ) {
+                console.log(int + " компьютеров");
+            }
+
+            if (endPosition == 1 && penultPosition != 1) {
+                console.log(int + " компьютер")
+            }
+
+            if (endPosition >= 2 && endPosition <= 4 && penultPosition != 1) {
+                console.log(int + " компьютера")
+            }
+
+        }
+        naming(a);
+        naming(b);
+        naming(c);
+        naming(d);
+        naming(e);
+        // _________________________________________________________________________________
+        let k = 2;
+        let l = 5;
+        let m = 8;
+        let n = 9;
+        let f = 17;
+        let h = 11232137;
+
+
+
+        function iSItAPrimeNumber(numb) {
+            let count = 0;
+            for (let i = 2; i <= numb - 1; i++) {
+
+                let newCount = numb % i;
+                if (newCount === 0) {
+                    count = count + 1;
+                }
+            }
+
+
+            if (count === 0) {
+                console.log(numb + " это простое число")
+            } else {
+                console.log(numb + " это не простое число")
+            }
+
+        }
+
+        iSItAPrimeNumber(k);
+        iSItAPrimeNumber(l);
+        iSItAPrimeNumber(m);
+        iSItAPrimeNumber(n);
+        iSItAPrimeNumber(f);
+        iSItAPrimeNumber(h);
+        // ___________________________________________________
+        const arr1 = [7, 17, 1, 9, 1, 17, 56, 56, 23];
+        const arr2 = [56, 17, 17, 1, 23, 34, 23, 1, 8, 1];
+        const inerset = function (num1, num2) {
+            let result = [];
+            let first = num1.slice(0)
+            for (let i = 0; i < first.length; i++) {
+                if (result.includes(first[i])) continue; // если текущий уже записан в результат, переходим к следующему
+                delete first[i] // удаляем текущий элемент
+                if (first.includes(num1[i]) && num2.includes(num1[i])) { // проверяем наличие удалённого элемента, если есть и присутствует во втором массиве
+                    let second = num2.slice(0); // клонируем второй массив
+                    delete second[second.indexOf(num1[i])] // ищем индекс и удаляем элемент
+                    if (second.includes(num1[i])) result.push(num1[i]) // если элемент после удаления встречается в массиве, добавляем 
+                }
+            }
+
+            return result
+        }
+        console.log(inerset(arr1, arr2));
+
+        //_____________________________________________
+
+        let oneRow = '';
+        function multiply() {
+            for (let i = 1; i < 6; i++) {
+
+                for (let j = 1; j < 6; j++) {
+                    oneRow += (j * i) + " ";
+
+                }
+
+                console.log(oneRow);
+                oneRow = '';
+            }
+
+        }
+
+        multiply();
+
+
+    </script>
+</body>
+
+</html>
